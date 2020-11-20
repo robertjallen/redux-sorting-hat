@@ -1,16 +1,23 @@
-import {SUCCESS} from '../actions/action'
+import {FETCH_SUCCESS, POST_SUCCESS} from '../actions/action'
 
 const initialState = {
-    house: null
+    legos: []
 }
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case SUCCESS:
+        case FETCH_SUCCESS:
             return{
                 ...state,
-                house: action.payload
+                legos: [...action.payload]
             }
+
+        case POST_SUCCESS:
+            return {
+                ...state,
+                legos: [...action.payload]
+            }
+
         default:
             return{
                 ...state
